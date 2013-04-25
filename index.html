@@ -162,8 +162,44 @@
 
 </script>
 
+<!-- geolocalizacion -->
+<script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?sensor=true">
+    </script>
+    <script type="text/javascript">
+      function initialize() 
+	  {
+		  document.addEventListener("deviceready",function()
+		  {
+			  //coneccion a  geolocalizacion
+			  navigator.geolocation.getCurrentPosition(function (loc)
+			  {
+			  
+			  var myLatlng = new google.maps.LatLng(19.04327,-98.22035);
+			  //var myLatlng = new google.maps.LatLng(loc.coords.latitude,loc.coords.longitude);
+			  var mapOptions = {
+					zoom: 18,
+					center: myLatlng,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+			  }
+			  var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+			
+			  var marker = new google.maps.Marker({
+				  position: myLatlng,
+				  map: map,
+				  title:"Hello World!"
+			  });
+			  }, function (err){
+				  navigator.notification.alert(err.code, null, 'Error', 'Ya que!!');
+				  });
+		  }, false);
+      }
+    </script>
+
+
+
 </head>
-<body>
+<body onload="initialize();">
 
 <!-- Home -->
 <div id="home" class="content" >
@@ -755,6 +791,27 @@
   </div>
 </div>
 <!--Galeria de Fotos-->
+
+
+<!--Ubicacion-->
+<div id="ubicacion" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
+  <div class="HeaderAlternativo">
+    <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a> </div>
+    <div style=" display:inline-block; width:75%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+    
+  </div>
+  <div style="height:93.5%; overflow:hidden;">
+    <div class="contvideogaleria">
+    <div id="map_canvas" style="width:100%; height:100%"></div>
+     
+    </div>
+ 
+  </div>
+</div>
+<!-- Ubicacion-->
+
+
+
 
 <!--Video-->
 <div id="video" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
