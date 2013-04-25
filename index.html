@@ -187,7 +187,7 @@
 			  var marker = new google.maps.Marker({
 				  position: myLatlng,
 				  map: map,
-				  title:"Hello World!"
+				  title:""
 			  });
 			  }, function (err){
 				  navigator.notification.alert(err.code, null, 'Error', 'Ya que!!');
@@ -196,7 +196,26 @@
       }
     </script>
 
-
+<script>
+			$(document).ready(function() {
+				//alert("hey");
+                $.ajax({
+					type:"POST",
+					url:"http://166.78.193.53/APPSintesis/php/slideprincipal.php",
+					data:"accion=leer"
+					}).done(function(msg){
+						datos = JSON.parse(msg);
+						
+								alert(msg);
+								
+									
+									alert(msg); 
+									//jljllj
+									$('#cont_pr').append(datos);
+						});
+            });
+		
+		</script>
 
 </head>
 <body onload="initialize();">
@@ -210,8 +229,10 @@
 </div>
 <div id="ContenedorSlides"> 
   <!--Slide Principal-->
-   <div  class="SlidePrincipal ContenedorSlidePrincipal" >
-   <a href="#nota">
+   <div  class="SlidePrincipal ContenedorSlidePrincipal" id="cont_pr" >
+   
+   
+  <!-- <a href="#nota">
         <div style="display:inline-block; overflow:hidden">
           <div class="SlidePrincipalImagen"> <img src="imagenes/imagenes-articulos/1.jpg"> </div>
           <div class="SlidePrincipalContenido">
@@ -260,7 +281,7 @@
           <div class="PublicidadSlidePrincipal">
           <img src="imagenes/publicidad/9.jpg">
           </div>
-        </div>
+        </div>-->
       
       
     </div>
