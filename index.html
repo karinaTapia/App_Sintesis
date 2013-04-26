@@ -207,15 +207,10 @@
 						datos = JSON.parse(msg);
 						
 								//alert(msg);
-									//$("#cont_pr").html(datos);
-										
-						for(i=0;i<datos.length;i++)
+									$("#cont_pr").html(datos);
+							for(i=0;i<datos.length;i++)
 							{
-								
-								for(var dat in datos)
-								{
-									$("#cont_pr").html(datos[i]);	
-								}
+								$("#cont_pr").html(datos[i]);
 							}
 						});
             });

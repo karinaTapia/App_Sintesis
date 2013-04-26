@@ -68,7 +68,7 @@ endwhile;
 			
 			
 			
-			//echo json_encode($arr);
+			echo json_encode($arr);
 		}
 	}else{
 		echo 0;
