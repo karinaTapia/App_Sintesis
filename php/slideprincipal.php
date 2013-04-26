@@ -59,8 +59,8 @@ include('../../funciones.php');
       </div>
       </a>
 	';
-	
-	$arr[$i]=$html;
+	$mensaje="mensaje1";
+	$arr[$i]=utf8_encode($mensaje);
 	$i++;
 	
 
