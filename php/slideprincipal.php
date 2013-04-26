@@ -9,16 +9,9 @@ include('../../funciones.php');
 	if(isset($_POST['accion'])){
 		if($_POST['accion'] == 'leer'){
 			$arr ="mensaje";
+			$i=0;//contador
 			
-			echo json_encode($arr);
-		}
-	}else{
-		echo 0;
-	}
-
-
-/*
-$select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal' AND estatus='1' ORDER BY id DESC";
+			$select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal' AND estatus='1' ORDER BY id DESC";
 	$r_app=mysql_query($select_app,$conexion);
 	while($f_app=mysql_fetch_assoc($r_app)):
 		$id_nota_app=$f_app['id'];
@@ -28,7 +21,7 @@ $select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal' AND es
 		$select_ar="SELECT titulo,sumario,id_seccion,autor,fecha_creacion,nota FROM articulos_".$plaza_app." WHERE id=".$id_articulo_app."";
 		
 		$r_ar=mysql_query($select_ar,$conexion);
-	while($f_ar=mysql_fetch_assoc($r_ar)):
+		while($f_ar=mysql_fetch_assoc($r_ar)):
 		$TituloSlidePrincipal=$f_ar['titulo'];
 		$SumarioSlidePrincipal=$f_ar['sumario'];
 		$Id_SeccionSlidePrincipal=$f_ar['id_seccion'];
@@ -45,14 +38,14 @@ $select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal' AND es
 		$imagen=utf8_decode($imagen);
 	endwhile;
 	
-	$select_se="SELECT seccion FROM secciones WHERE id='".$Id_SeccionSlidePrincipal."'";
-	$r_se=mysql_query($select_se,$conexion);
-	while($f_se=mysql_fetch_assoc($r_se)):
+			$select_se="SELECT seccion FROM secciones WHERE id='".$Id_SeccionSlidePrincipal."'";
+			$r_se=mysql_query($select_se,$conexion);
+		while($f_se=mysql_fetch_assoc($r_se)):
 		$SeccionSlidePrincipal=$f_se['seccion'];
 		$SeccionSlidePrincipal=utf8_encode($SeccionSlidePrincipal);
 	endwhile;
-	
-$html.='
+		
+		$html.='
 	<a href="#nota" onclick="LeerNota('.$id_nota_app.')">
       <div class="ContenedorContenidoPrincipal">
         <div class="SlidePrincipalImagen" > <img src="'.$url_dominio_.'/images/imagenes-articulos/'.$imagen.'" > </div>
@@ -66,8 +59,23 @@ $html.='
       </div>
       </a>
 	';
+	
+	$arr[$i]=$html;
+	$i++;
+	
+
 endwhile;
-*/
+			
+			
+			
+			//echo json_encode($arr);
+		}
+	}else{
+		echo 0;
+	}
+
+
+
 
 
 /*
