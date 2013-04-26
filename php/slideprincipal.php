@@ -8,9 +8,9 @@ include('../../funciones.php');
 //Consulta de datos
 	if(isset($_POST['accion'])){
 		if($_POST['accion'] == 'leer'){
-			$arr ="mensaje";
+			$arr = array();
 			$i=0;//contador
-			/*
+			
 			$select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal' AND estatus='1' ORDER BY id DESC";
 	$r_app=mysql_query($select_app,$conexion);
 	while($f_app=mysql_fetch_assoc($r_app)):
@@ -60,12 +60,15 @@ include('../../funciones.php');
       </a>
 	';
 	$mensaje="mensaje1";
-	$arr[$i]=utf8_encode($mensaje);
+	
+	$arr[$i]=array(
+	'id' => $mensaje
+	);
 	$i++;
 	
 
 endwhile;
-			*/
+			
 			
 			
 			echo json_encode($arr);
